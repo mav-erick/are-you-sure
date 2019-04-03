@@ -1,16 +1,19 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule, Injector } from "@angular/core";
 
-import { AppComponent } from './app.component';
+import { AysComponent } from "./ays/ays.component";
+import { createCustomElement } from "@angular/elements";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AysComponent],
+  imports: [BrowserModule],
+  entryComponents: [AysComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(injector: Injector) {
+    const ays = createCustomElement(AysComponent, { injector });
+    customElements.define("ays-button", ays);
+  }
+
+  ngDoBootstrap() {}
+}

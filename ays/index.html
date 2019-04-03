@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .jacked-up {
+        font-size: 50px;
+        font-style: italic;
+      }
+      .bg-green {
+        background: forestgreen !important;
+      }
+    </style>
+    <script src="elements.js"></script>
+  </head>
+  <body>
+    <!-- <ays-button
+      id="aysButton"
+      label="Hello"
+      confirmationtext="Sure about this?"
+      yeslabel="Sure"
+      nolabel="Nah"
+      textclass="jacked-up"
+      stickyfooter="false"
+      closelabel="Cut"
+      modalclass="bg-green"
+    ></ays-button> -->
+    <ays-button id="aysButton"></ays-button>
+  </body>
+  <script>
+    var element = document.getElementById("aysButton");
+    element.addEventListener("onOpen", function(e) {
+      console.log("On opened fired");
+    });
+    element.addEventListener("onClose", function(e) {
+      console.log("On closed fired");
+    });
+    element.addEventListener("beforeClose", function(e) {
+      console.log("Before closed fired");
+    });
+    element.addEventListener("select", function(e) {
+      console.log("Received event:", e.detail);
+    });
+  </script>
+</html>
